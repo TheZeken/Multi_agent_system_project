@@ -1,0 +1,2 @@
+<instance> 
+<presentation name="sampleProblem" maxConstraintArity="2" maximize="false" format="XCSP 2.1_FRODO" /> 
