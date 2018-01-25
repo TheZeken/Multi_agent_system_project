@@ -1,0 +1,169 @@
+<instance> 
+ <presentation name="sampleProblem" maxConstraintArity="2" maximize="false" format="XCSP 2.1_FRODO" />     <agents nbAgents="29"> 
+         <agent name="a_1"/> 
+         <agent name="a_2"/> 
+         <agent name="a_3"/> 
+         <agent name="a_4"/> 
+         <agent name="a_5"/> 
+         <agent name="a_6"/> 
+         <agent name="a_7"/> 
+         <agent name="a_8"/> 
+         <agent name="a_9"/> 
+         <agent name="a_10"/> 
+         <agent name="a_11"/> 
+         <agent name="a_12"/> 
+         <agent name="a_13"/> 
+         <agent name="a_14"/> 
+         <agent name="a_15"/> 
+         <agent name="a_16"/> 
+         <agent name="a_17"/> 
+         <agent name="a_18"/> 
+         <agent name="a_19"/> 
+         <agent name="a_20"/> 
+         <agent name="a_21"/> 
+         <agent name="a_22"/> 
+         <agent name="a_23"/> 
+         <agent name="a_24"/> 
+         <agent name="a_25"/> 
+         <agent name="a_26"/> 
+         <agent name="a_27"/> 
+         <agent name="a_28"/> 
+         <agent name="a_29"/> 
+     </agents>  
+    <domains nbDomains="8"> 
+         <domain name="d_1" nbValues="48">16 30 44 58 72 86 100 114 128 142 156 170 240 254 268 282 296 310 324 338 352 366 380 394 408 414 428 442 456 470 478 484 498 512 526 540 554 652 666 680 694 708 722 736 750 764 778 792</domain>  
+         <domain name="d_2" nbValues="44">16 30 44 58 72 86 100 114 128 142 156 254 268 282 296 310 324 338 352 366 380 394 414 428 442 456 470 484 498 512 526 540 554 652 666 680 694 708 722 736 750 764 778 792</domain>  
+         <domain name="d_3" nbValues="22">30 58 86 114 142 268 296 324 352 380 414 442 470 498 526 554 652 680 708 736 764 792</domain>  
+         <domain name="d_4" nbValues="36">30 44 58 72 86 100 114 128 142 268 282 296 310 324 338 352 366 380 428 442 456 470 484 498 512 526 540 666 680 694 708 722 736 750 764 778</domain>  
+         <domain name="d_5" nbValues="24">16 30 58 86 114 142 254 268 296 324 352 380 414 442 470 498 526 554 652 680 708 736 764 792</domain>  
+         <domain name="d_6" nbValues="6">142 170 240 380 408 478</domain>  
+         <domain name="d_7" nbValues="42">30 44 58 72 86 100 114 128 142 156 268 282 296 310 324 338 352 366 380 394 414 428 442 456 470 484 498 512 526 540 554 652 666 680 694 708 722 736 750 764 778 792</domain>  
+         <domain name="d_8" nbValues="22">16 30 44 58 72 86 100 114 128 142 156 254 268 282 296 310 324 338 352 366 380 394</domain>  
+</domains>  
+    <variables nbVariables="29"> 
+         <variable name="v_1" domain="d_1" agent="a_1" /> 
+         <variable name="v_2" domain="d_1" agent="a_2" /> 
+         <variable name="v_3" domain="d_2" agent="a_3" /> 
+         <variable name="v_4" domain="d_2" agent="a_4" /> 
+         <variable name="v_5" domain="d_1" agent="a_5" /> 
+         <variable name="v_6" domain="d_1" agent="a_6" /> 
+         <variable name="v_7" domain="d_1" agent="a_7" /> 
+         <variable name="v_8" domain="d_1" agent="a_8" /> 
+         <variable name="v_9" domain="d_1" agent="a_9" /> 
+         <variable name="v_10" domain="d_1" agent="a_10" /> 
+         <variable name="v_11" domain="d_1" agent="a_11" /> 
+         <variable name="v_12" domain="d_1" agent="a_12" /> 
+         <variable name="v_13" domain="d_1" agent="a_13" /> 
+         <variable name="v_14" domain="d_1" agent="a_14" /> 
+         <variable name="v_15" domain="d_1" agent="a_15" /> 
+         <variable name="v_16" domain="d_1" agent="a_16" /> 
+         <variable name="v_17" domain="d_1" agent="a_17" /> 
+         <variable name="v_18" domain="d_1" agent="a_18" /> 
+         <variable name="v_19" domain="d_2" agent="a_19" /> 
+         <variable name="v_20" domain="d_2" agent="a_20" /> 
+         <variable name="v_21" domain="d_3" agent="a_21" /> 
+         <variable name="v_22" domain="d_3" agent="a_22" /> 
+         <variable name="v_23" domain="d_3" agent="a_23" /> 
+         <variable name="v_24" domain="d_3" agent="a_24" /> 
+         <variable name="v_25" domain="d_1" agent="a_25" /> 
+         <variable name="v_26" domain="d_1" agent="a_26" /> 
+         <variable name="v_27" domain="d_1" agent="a_27" /> 
+         <variable name="v_28" domain="d_1" agent="a_28" /> 
+         <variable name="v_29" domain="d_2" agent="a_29" /> 
+</variables>  
+<predicates nbPredicates="2"> 
+  <predicate name="EQ"> 
+       <parameters> int X1 int X2 int X3 </parameters>  
+       <expression>
+         <functional> eq(sub(X1, X2),X3) </functional> 
+        </expression>
+  </predicate> 
+   <predicate name="SUP"> 
+       <parameters> int X1 int X2 int X3</parameters>  
+       <expression>
+         <functional> gt(sub(X1, X2),X3) </functional> 
+       </expression>
+  </predicate> 
+ </predicates> 
+
+<constraints nbConstraints="26"> 
+<constraint name="v_1_min_v_2_eq" arity="2" scope="v_1 v_2" reference="EQ" >
+<parameters> v_1 v_2 238</parameters> 
+</constraint> 
+<constraint name="v_3_min_v_4_eq" arity="2" scope="v_3 v_4" reference="EQ" >
+<parameters> v_3 v_4 238</parameters> 
+</constraint> 
+<constraint name="v_3_min_v_18_sup" arity="2" scope="v_3 v_18" reference="SUP" >
+<parameters> v_3 v_18 19</parameters> 
+</constraint> 
+<constraint name="v_3_min_v_19_sup" arity="2" scope="v_3 v_19" reference="SUP" >
+<parameters> v_3 v_19 2</parameters> 
+</constraint> 
+<constraint name="v_3_min_v_20_sup" arity="2" scope="v_3 v_20" reference="SUP" >
+<parameters> v_3 v_20 55</parameters> 
+</constraint> 
+<constraint name="v_4_min_v_18_sup" arity="2" scope="v_4 v_18" reference="SUP" >
+<parameters> v_4 v_18 21</parameters> 
+</constraint> 
+<constraint name="v_4_min_v_19_sup" arity="2" scope="v_4 v_19" reference="SUP" >
+<parameters> v_4 v_19 55</parameters> 
+</constraint> 
+<constraint name="v_4_min_v_20_sup" arity="2" scope="v_4 v_20" reference="SUP" >
+<parameters> v_4 v_20 2</parameters> 
+</constraint> 
+<constraint name="v_5_min_v_6_eq" arity="2" scope="v_5 v_6" reference="EQ" >
+<parameters> v_5 v_6 238</parameters> 
+</constraint> 
+<constraint name="v_7_min_v_8_eq" arity="2" scope="v_7 v_8" reference="EQ" >
+<parameters> v_7 v_8 238</parameters> 
+</constraint> 
+<constraint name="v_7_min_v_9_sup" arity="2" scope="v_7 v_9" reference="SUP" >
+<parameters> v_7 v_9 59</parameters> 
+</constraint> 
+<constraint name="v_7_min_v_10_sup" arity="2" scope="v_7 v_10" reference="SUP" >
+<parameters> v_7 v_10 84</parameters> 
+</constraint> 
+<constraint name="v_8_min_v_9_sup" arity="2" scope="v_8 v_9" reference="SUP" >
+<parameters> v_8 v_9 84</parameters> 
+</constraint> 
+<constraint name="v_8_min_v_10_sup" arity="2" scope="v_8 v_10" reference="SUP" >
+<parameters> v_8 v_10 59</parameters> 
+</constraint> 
+<constraint name="v_9_min_v_10_eq" arity="2" scope="v_9 v_10" reference="EQ" >
+<parameters> v_9 v_10 238</parameters> 
+</constraint> 
+<constraint name="v_11_min_v_12_eq" arity="2" scope="v_11 v_12" reference="EQ" >
+<parameters> v_11 v_12 238</parameters> 
+</constraint> 
+<constraint name="v_13_min_v_14_eq" arity="2" scope="v_13 v_14" reference="EQ" >
+<parameters> v_13 v_14 238</parameters> 
+</constraint> 
+<constraint name="v_13_min_v_16_sup" arity="2" scope="v_13 v_16" reference="SUP" >
+<parameters> v_13 v_16 84</parameters> 
+</constraint> 
+<constraint name="v_14_min_v_15_sup" arity="2" scope="v_14 v_15" reference="SUP" >
+<parameters> v_14 v_15 84</parameters> 
+</constraint> 
+<constraint name="v_15_min_v_16_eq" arity="2" scope="v_15 v_16" reference="EQ" >
+<parameters> v_15 v_16 238</parameters> 
+</constraint> 
+<constraint name="v_17_min_v_18_eq" arity="2" scope="v_17 v_18" reference="EQ" >
+<parameters> v_17 v_18 238</parameters> 
+</constraint> 
+<constraint name="v_19_min_v_20_eq" arity="2" scope="v_19 v_20" reference="EQ" >
+<parameters> v_19 v_20 238</parameters> 
+</constraint> 
+<constraint name="v_21_min_v_22_eq" arity="2" scope="v_21 v_22" reference="EQ" >
+<parameters> v_21 v_22 238</parameters> 
+</constraint> 
+<constraint name="v_23_min_v_24_eq" arity="2" scope="v_23 v_24" reference="EQ" >
+<parameters> v_23 v_24 238</parameters> 
+</constraint> 
+<constraint name="v_25_min_v_26_eq" arity="2" scope="v_25 v_26" reference="EQ" >
+<parameters> v_25 v_26 238</parameters> 
+</constraint> 
+<constraint name="v_27_min_v_28_eq" arity="2" scope="v_27 v_28" reference="EQ" >
+<parameters> v_27 v_28 238</parameters> 
+</constraint> 
+</constraints> 
+</instance>

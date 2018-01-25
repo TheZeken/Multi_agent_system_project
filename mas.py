@@ -8,19 +8,16 @@ Created on Thu Dec 14 16:52:15 2017
 import pymysql
 import pymysql.cursors
 
-import pymysql
-import pymysql.cursors
-
 # Connect to the database.
 conn = pymysql.connect(db='mas', user='root', passwd='', host='localhost')
 
-get_nb_var = "SELECT count(*) FROM `variable`"
-get_var = "SELECT * FROM `variable`"
+get_nb_var = "SELECT count(*) FROM `variable` WHERE `var_nb`<30"
+get_var = "SELECT * FROM `variable` WHERE `var_nb`<30"
 get_nb_dom = "SELECT count(DISTINCT `dom_nb`) FROM `domain`"
 get_val_dom = "SELECT `val_dom` FROM `domain` WHERE `dom_nb`= %s"
 get_nb_val_dom = "SELECT count(*) FROM `domain` WHERE `dom_nb`= %s"
-get_nb_const = "SELECT count(*) FROM `constraints` WHERE"
-get_const = "SELECT * FROM `constraints`"
+get_nb_const = "SELECT count(*) FROM `constraints` WHERE `var_nb1`<30 AND `var_nb2`<30"
+get_const = "SELECT * FROM `constraints` WHERE `var_nb1`<30 AND `var_nb2`<30"
 
 
                           
@@ -36,7 +33,7 @@ with conn.cursor() as cursor:
         nb_dom = row[0]    
     
 
-xml = open("test.xml", "w")
+xml = open("test_DPOP_30.xml", "w")
 xml.write("<instance> \n <presentation name=\"sampleProblem\" maxConstraintArity=\"2\" maximize=\"false\" format=\"XCSP 2.1_FRODO\" /> ")
 xml.write( "    <agents nbAgents=\""+str(nb_var)+"\"> \n")
 
@@ -96,7 +93,7 @@ xml.write("  </predicate> \n ")
 xml.write("</predicates> \n\n")
 
 with conn.cursor() as cursor:
-    cursor.execute(get_nb_var) #We execute our SQL request
+    cursor.execute(get_nb_const) #We execute our SQL request
     conn.commit()
     for row in cursor:
         nb_const = row[0]
